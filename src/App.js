@@ -17,7 +17,16 @@ const defaultParticipants = [
     },
 ]
 
-function calcAllPoses(participants, gaze) {
+function onClick(e, participants, setParticipants, setPointer) {
+    let gaze = {
+        "x": e.clientX,
+        "y": e.clientY
+    }
+    setPointer({...gaze})
+    return calcAllPoses(participants, gaze, setParticipants)
+}
+
+function calcAllPoses(participants, gaze, setParticipants) {
     // TODO: get gaze information from head pose
     let numParticipants = participants.length
     let iw = window.innerWidth
@@ -44,15 +53,13 @@ function calcAllPoses(participants, gaze) {
 
     console.log("gaze:"+JSON.stringify(gaze))
     console.log(ret)
+    setParticipants(ret)
     return ret
 }
 
 function App() {
-    let gaze = {
-        'x': 200,
-        'y': 400
-    }
     const [participants, setParticipants] = useState(defaultParticipants)
+    const [pointer, setPointer] = useState({"x": 0, "y": 0})
     return (
         <div className="App">
             <div className="participants">
@@ -64,7 +71,9 @@ function App() {
                     )
                 })}
             </div>
-            <button className="helper" onClick={ () => {calcAllPoses(participants, gaze)} }>Gaze</button>
+            <div className="click-area" onClick={ (e) => {onClick(e, participants, setParticipants, setPointer)}}>
+                <div id="pointer" style={{"left": pointer.x + "px", "top": pointer.y + "px"}}/>
+            </div>
         </div>
     );
 }

@@ -33,3 +33,20 @@ button.helper {
     bottom: 0;
     border: none; outline: none;
 }
+
+.click-area {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+#pointer {
+    width: 8px;
+    height: 8px;
+    position: fixed;
+    border-radius: 50%;
+    background: red;
+}
