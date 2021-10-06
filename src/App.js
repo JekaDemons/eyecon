@@ -4,15 +4,19 @@ import './App.css';
 
 const defaultParticipants = [
     {
+        'name': 'kevin',
         'state': 1
     },
     {
+        'name': 'cathy',
         'state': 0
     },
     {
+        'name': 'amitub',
         'state': -1
     },
     {
+        'name': 'ido',
         'state': -1
     },
 ]
@@ -24,6 +28,12 @@ function onClick(e, participants, setParticipants, setPointer) {
     }
     setPointer({...gaze})
     return calcAllPoses(participants, gaze, setParticipants)
+}
+
+const directions = {
+    '-1': 'left',
+    '0': 'front',
+    '1': 'right'
 }
 
 function calcAllPoses(participants, gaze, setParticipants) {
@@ -64,10 +74,14 @@ function App() {
         <div className="App">
             <div className="participants">
                 {participants.map((p, i) => {
+                    let bgName = "/img/" + p.name + "-" + directions[p.state.toString()] + ".jpg"
                     return (
-                        <div key={i} className="participant" style={{"width": (100 / participants.length) + "%"}}>
-                            {p.state} 
-                        </div>
+                        <div key={i} 
+                        className="participant" 
+                        style={{
+                            width: (100 / participants.length) + "%",
+                            backgroundImage: `url(${process.env.PUBLIC_URL + bgName})`
+                        }} />
                     )
                 })}
             </div>
