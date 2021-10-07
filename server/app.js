@@ -42,10 +42,11 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 
 app.ws('/ws', function(ws, req) {
+    console.log('yo')
   ws.on('message', function(msg) {
     console.log(msg);
   });
   console.log('socket', req.testing);
 });
 
-app.listen(3000);
+app.listen(8080);
