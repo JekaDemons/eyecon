@@ -93,7 +93,6 @@ function calcAllPoses(participants, gaze, setParticipants) {
 }
 
 function App() {
-    console.log(faceapi)
     const [participants, setParticipants] = useState(defaultParticipants)
     const [pointer, setPointer] = useState({"x": 0, "y": 0})
     return (
