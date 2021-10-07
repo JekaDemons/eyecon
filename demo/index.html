@@ -2,15 +2,35 @@
     <head>
         <link rel="stylesheet" href="App.css">
         <link rel="stylesheet" href="index.css">
+
+        <link rel="preload" href="img/0-left.jpg" as="image">
+        <link rel="preload" href="img/0-front.jpg" as="image">
+        <link rel="preload" href="img/0-right.jpg" as="image">
+        <link rel="preload" href="img/1-left.jpg" as="image">
+        <link rel="preload" href="img/1-front.jpg" as="image">
+        <link rel="preload" href="img/1-right.jpg" as="image">
+        <link rel="preload" href="img/2-left.jpg" as="image">
+        <link rel="preload" href="img/2-front.jpg" as="image">
+        <link rel="preload" href="img/2-right.jpg" as="image">
+        <link rel="preload" href="img/3-left.jpg" as="image">
+        <link rel="preload" href="img/3-front.jpg" as="image">
+        <link rel="preload" href="img/3-right.jpg" as="image">
     </head>
     <body>
+        <video id="videoInput" style="display:none"></video>
+
+        <script src="js/opencv.js" type="text/javascript"></script>
+        <script src="js/face-api.min.js" type="text/javascript"></script>
+        <script src="js/detector.js" type="text/javascript"></script>
+        <script src="js/index.js" type="text/javascript"></script>
+        
         <div id="root">
             <div class="App">
-                <div class="participants">
-                    <div class="participant" style="width: 25%; background-image: url('app/public/img/kevin-right.jpg');"></div>
-                    <div class="participant" style="width: 25%; background-image: url('app/public/img/cathy-front.jpg');"></div>
-                    <div class="participant" style="width: 25%; background-image: url('app/public/img/amitub-left.jpg');"></div>
-                    <div class="participant" style="width: 25%; background-image: url('app/public/img/ido-left.jpg');"></div>
+                <div class="participants" id="participants">
+                    <div class="participant" style="width: 25%; background-image: url('img/0-front.jpg')"></div>
+                    <div class="participant" style="width: 25%; background-image: url('img/1-front.jpg')"></div>
+                    <div class="participant" style="width: 25%; background-image: url('img/2-front.jpg')"></div>
+                    <div class="participant" style="width: 25%; background-image: url('img/3-front.jpg')"></div>
                 </div>
             </div>
         </div>
