@@ -11,6 +11,8 @@ navigator.mediaDevices
   });
 */
 
+const SIZE = {  width: 1920, height: 1080 } //{ width: 640, height: 480 }
+
 // wants DOM videoInput object <video>
 async function getAngles(video) {
     async function captureLandmarks(video) {
@@ -42,7 +44,7 @@ async function getAngles(video) {
     const rvec = new cv.Mat({ width: 1, height: 3 }, cv.CV_64FC1);
     const tvec = new cv.Mat({ width: 1, height: 3 }, cv.CV_64FC1);
   
-    const size = { width: 640, height: 480 };
+    const size = SIZE;
     const center = [size.width / 2, size.height / 2];
     const focalLength = size.width;
     const cameraMatrix = cv.matFromArray(3, 3, cv.CV_64FC1, [
@@ -104,7 +106,7 @@ async function getAngles(video) {
   
   // wants DOM videoInput object <video>
   async function initialize(video) {
-    const size = { width: 640, height: 480 };
+    const size = SIZE;
     await faceapi.nets.faceLandmark68Net.loadFromUri('/weights');
     await faceapi.nets.ssdMobilenetv1.loadFromUri('/weights');
     video.width = size.width;
