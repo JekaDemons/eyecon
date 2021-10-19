@@ -1,4 +1,4 @@
-const ANGLE_RANGE = [-120, 120] //[-60, 60]
+const ANGLE_RANGE = [-80, 110] //[-60, 60]
 const INVERT_ANGLE = false // true
 
 function normalizeAngle(angle) {
