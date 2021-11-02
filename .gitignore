@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+headpose/headpose_env/
+headpose/__pycache__/
